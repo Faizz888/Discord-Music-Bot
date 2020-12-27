@@ -4,14 +4,14 @@ const Discord = require("discord.js"), Ytdl = require("discord-ytdl-core"), db =
 
 module.exports = {
   name: "nightcore",
-  aliases: ["nc", "хардкор"],
+  aliases: ["nc"],
   category: "Music",
-  description: "Включить / выключить хардкор",
+  description: "Включить / выключить изменение музыки",
   usage: "Nightcore",
   run: async (client, message, args) => {
     const Channel = message.member.voice.channel;
 
-    if (!Channel) return message.channel.send("Please Join A Voice Channel!");
+    if (!Channel) return message.channel.send("Пожалуйста, присоединитесь к голосовому каналу.");
 
     const Queue = await client.queue.get(message.guild.id);
 

@@ -20,7 +20,7 @@ module.exports = {
     .setColor(Color)
     .setThumbnail(client.user.displayAvatarURL({ format: "png" }))
     .setTitle(`${client.user.username} Help!`)
-    .setDescription(`Введите - **${Prefix}help <название команды> для получения информации команды**\n\n**🎶 Music**\n${Music}\n\n**🔮 Other**\n${Other}\n\n**🕹 Config**\n${Config})\nСсылка бота - [Мой мир](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8)`)
+    .setDescription(`Введите - **${Prefix}help <название команды> для получения информации команды**\n\n**🎶 Music**\n${Music}\n\n**🔮 Other**\n${Other}\n\n**🕹 Config**\n${Config}\nСсылка бота - [Мой мир](https://discord.com/oauth2/authorize?client_id=${client.user.id}&scope=bot&permissions=8)`)
     .setFooter(`Запросил ${message.author.username}`)
     .setTimestamp();
     

@@ -95,10 +95,10 @@ module.exports = {
           if (Queue) {
             const Embed = new Discord.MessageEmbed()
               .setColor(Color)
-              .setTitle("Song Added!")
+              .setTitle("Добавлено в очередь!")
               .setThumbnail(Song.Thumbnail)
               .setDescription(
-                `[${Song.Title}](${Song.Link}) добавлена в очередь!`
+                `[${Song.Title}](${Song.Link})`
               )
               .setTimestamp();
             await Queue.Songs.push(Song);

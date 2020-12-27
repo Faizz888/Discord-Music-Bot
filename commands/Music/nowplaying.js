@@ -56,18 +56,22 @@ module.exports = {
       ShowBar = "🔵▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬";
     };
 
-    const Data = `Название - **[${Song.Title}](${Song.Link})**\nЗапросил - **[${
-      Song.Author
-    }](${Song.AuthorLink})**\nЗагрузка - **${
-      Song.Upload
-    }**\nПросмотры - **${Song.Views ||
-      0}**\nДлительность - **${Total}**\nОсталось - **${Remaining}**\n\n`;
+    //const data = new Discord.MessageEmbed()
+    //data.setTitle('Название')
+    //data.setDescription(`**[${Song.Title}](${Song.Link})**`)
+    
 
     const Embed = new Discord.MessageEmbed()
+      .addField("Название", `**[${Song.Title}](${Song.Link})**`)
+      .addField("Автор канала", `**[${Song.Author}](${Song.AuthorLink})**`)
+      .addField("Длительность", `**${Total}**`)
+      .addField("Дата загрузки", `**${Song.Upload}**`)
+      .addField("Просмотров", `**${Song.Views || 0}**`)
+      .addField("Оставшееся время", `**${Remaining}**`)
       .setColor(Color)
       .setThumbnail(Song.Thumbnail)
       .setTitle("Сейчас играет")
-      .setDescription(Data + `${ShowBar}\n${Adder}/${Total}`)
+      .setDescription(`${ShowBar}\n${Adder}/${Total}`)
       .setFooter(`Добавлено пользователем ${Song.Owner}`)
       .setTimestamp();
 

@@ -48,6 +48,7 @@ module.exports = {
       const Embeded = new Discord.MessageEmbed()
         .setColor(options.Color)
         .setTitle("Очередь опустела")
+        
         .setDescription(
           "Песни закончились, спасибо что слушали музыку через меня ;)"
         )

@@ -1,6 +1,7 @@
 const { Default_Prefix, Color } = require("../../config.js");
 const { GetRegxp, Linker, Objector, Player } = require("../../Functions.js");
 const Discord = require("discord.js"), Sr = require("youtube-sr"), syt = require("scrape-yt"), Ytdl = require("discord-ytdl-core"), db = require("wio.db");
+const client = new Discord.Client();
 
 
 module.exports = {
@@ -175,10 +176,10 @@ module.exports = {
       } else {
         const Embed = new Discord.MessageEmbed()
           .setColor(Color)
-          .setTitle("Song Added!")
+          .setTitle("Добавлено в очередь!")
           .setThumbnail(Song.Thumbnail)
           .setDescription(
-            `[${Song.Title}](${Song.Link}) добавлен в очередь!`
+            `[${Song.Title}](${Song.Link})`
           )
           .setTimestamp();
         await ServerQueue.Songs.push(Song);
@@ -218,17 +219,15 @@ module.exports = {
       return message.channel.send(
         "**Ошибка.**"
       );
-    }
-  }
-  
-}
-const Queue = await client.queue.get(message.guild.id);
     
+
+    const Queue = await client.queue.get(message.guild.id);
+
     if (!Queue) return message.channel.send("Ничего не играет, добавьте пару песен :D");
    
     if (Queue.Playing) return message.channel.send("🎶 Играет!");
     
-    Queue.Playing = true;
+    Queue.Playing = false;
     Queue.Bot.dispatcher.resume();
     
     const Embed = new Discord.MessageEmbed()
@@ -238,3 +237,4 @@ const Queue = await client.queue.get(message.guild.id);
     .setTimestamp();
     
     return message.channel.send(Embed).catch(() => message.channel.send("🎶"));
+    }}}

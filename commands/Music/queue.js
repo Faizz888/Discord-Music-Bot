@@ -20,11 +20,12 @@ module.exports = {
         "Ничего не играет."
       );
     
-    const Sort = await Queue.Songs.map((Song, Position) => `${(Position + 1) === 1 ? "Сейчас играет" : (Position - 1) === 0 ? 1 : (Position)} | ${Song.Title.length > 60 ? Song.Title.slice(0, 60) + "..." : Song.Title}`).join("\n");
+    const Sort = await Queue.Songs.map((Song, Position) => `${(Position + 1) === 1 ? "__Сейчас играет:__" : (Position - 1) === 0 ? 1 : (Position)} ${Song.Title.length > 60 ? Song.Title.slice(0, 60) + "..." : Song.Title} (${Song.Duration}) (Запросил ${Song.Owner})`).join("\n");
     
     if (!Sort) return message.channel.send("Очередь пуста.");
 
     let queuee = new Discord.MessageEmbed()
+    queuee.setTitle("Очередь")
     queuee.setColor(Color);
     queuee.setDescription(Sort + "", {
       split: {char: "\n"}

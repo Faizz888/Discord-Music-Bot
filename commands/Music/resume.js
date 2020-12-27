@@ -4,7 +4,7 @@ const db = require("wio.db");
 
 module.exports = {
   name: "resume",
-  aliases: ["restart", "p"],
+  aliases: ["r"],
   category: "Music",
   description: "Возобновить музыку",
   usage: "resume",
